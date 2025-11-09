@@ -6,7 +6,6 @@ import time
 DSN = "postgresql://postgres:dream@localhost:5433/SphereShop"
 
 def init_db():
-    """Создаёт тестовую таблицу для имитации активности"""
     try:
         conn = psycopg2.connect(DSN)
         cur = conn.cursor()
@@ -20,18 +19,16 @@ def init_db():
         conn.commit()
         cur.close()
         conn.close()
-        print("✅ Test table ready")
+        print("Test table ready")
     except Exception as e:
         print("DB init error:", e)
 
 def worker():
-    """Имитирует разные операции — SELECT, INSERT, DELETE"""
     while True:
         try:
             conn = psycopg2.connect(DSN)
             cur = conn.cursor()
 
-            # Выбор случайной операции
             op = random.choice(["select", "insert", "delete"])
 
             if op == "select":
@@ -61,6 +58,6 @@ if __name__ == "__main__":
     for _ in range(6):
         threading.Thread(target=worker, daemon=True).start()
 
-    print("Started 6 workers — press Ctrl+C to stop")
+    print("Started 6 workers")
     while True:
         time.sleep(10)
