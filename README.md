@@ -1,7 +1,7 @@
 This project provides a custom and postgresql Prometheus exporters collecting metrics for weather, air quality, Mars weather, and cryptocurrency prices, along with a PostgreSQL database. It can be run fully via Docker.
 
 1. Clone the repository
-git clone https://github.com/yourusername/yourproject.git
+git clone https://github.com/askhat00/ShopSphere-Analytics2.git
 cd yourproject
 
 2. Build and run Docker containers
